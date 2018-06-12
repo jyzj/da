@@ -1,6 +1,6 @@
-﻿namespace da
+﻿namespace da.Wins
 {
-    partial class Form1
+    partial class WMain
     {
         /// <summary>
         /// Required designer variable.
