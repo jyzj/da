@@ -46,11 +46,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="DS\Account.cs" />
+    <Compile Include="DS\Conf.cs" />
+    <Compile Include="DS\Schedule.cs" />
+    <Compile Include="Wins\WAccounts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Wins\WAccounts.Designer.cs">
+      <DependentUpon>WAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wins\WMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wins\WMain.Designer.cs">
+      <DependentUpon>WMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,6 +85,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
