@@ -12,6 +12,8 @@ namespace jiuyin.DataStructure
         private string pwd;                         //账户密码
         private string safePwd;                     //财产安全口令
 
+        private string characterName;               //角色名
+
         private string pgId;                        //密保卡id
         private int[,] pgNums;                       //密保数字 0<=x<10, 0<=y<7
 
@@ -69,6 +71,16 @@ namespace jiuyin.DataStructure
         public string getSafePwd()
         {
             return this.safePwd;
+        }
+
+        /*** 角色名 ***/
+        public void setCharacterName(string characterName)
+        {
+            this.characterName = characterName;
+        }
+        public string getCharacterName()
+        {
+            return this.characterName;
         }
 
         /*** 获取密保卡的方法 ***/
