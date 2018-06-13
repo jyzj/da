@@ -1,5 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using jiuyin.DataStructure;
+using System;
+using System.Collections;                               // 导入ArrayList的命名空间
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -12,31 +13,47 @@ namespace da.Wins
 {
     public partial class WAccounts : Form
     {
-        private DataSet dsAccounts;                     //账户数据
+        private ArrayList accounts;                     //账户数据
 
         /**
          * 构造方法
          * @dsAccounts                                  //传递过来的账户数据
          */
-        public WAccounts(DataSet dsAccounts)
+        public WAccounts(ArrayList accounts)
         {
-            //接受传递过来的账户数据
-            if (dsAccounts != null)
+            //尝试接收传递过来的账户数据
+            if (accounts != null)
             {
-                this.dsAccounts = dsAccounts;
+                this.accounts = (ArrayList) accounts.Clone();
             }else
             {
-                dsAccounts = new DataSet();
+                this.accounts = new ArrayList();
+                int[,] aa = new int[1, 1];
+                aa[0, 0] = 1;
+
+                Account a = new Account("", "", "", "", "", "", "", "", "", "", aa);
+                this.accounts.Add(a);
             }
 
             
             //初始化界面
             InitializeComponent();
-
-            //绑定数据源
-            this.Table.DataSource = this.dsAccounts;
         }
 
+
+        /**
+         * 显示行号
+         */
+        private void tRowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            //显示在HeaderCell上
+            for (int i = 0; i < this.Table.Rows.Count; i++)
+            {
+                DataGridViewRow r = this.Table.Rows[i];
+                r.HeaderCell.Value = string.Format("{0}", i + 1);
+            }
+            this.Table.Refresh();
+        }
 
     }
 }
