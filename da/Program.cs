@@ -21,7 +21,8 @@ namespace da
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new WMain());
-            Application.Run(new WAccounts(null));
+            //Application.Run(new WAccounts(null));
+            Application.Run(new WAccounts_Add());
         }
 
         /**

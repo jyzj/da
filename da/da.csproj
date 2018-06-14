@@ -76,6 +76,12 @@
     <Compile Include="DS\Account.cs" />
     <Compile Include="DS\Conf.cs" />
     <Compile Include="DS\Schedule.cs" />
+    <Compile Include="Wins\WAccounts_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wins\WAccounts_Add.Designer.cs">
+      <DependentUpon>WAccounts_Add.cs</DependentUpon>
+    </Compile>
     <Compile Include="Wins\WAccounts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Wins\WAccounts_Add.resx">
+      <DependentUpon>WAccounts_Add.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Wins\WAccounts.resx">
       <DependentUpon>WAccounts.cs</DependentUpon>
     </EmbeddedResource>

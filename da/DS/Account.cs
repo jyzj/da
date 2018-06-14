@@ -15,7 +15,7 @@ namespace jiuyin.DataStructure
         private string characterName;               //角色名
 
         private string pgId;                        //密保卡id
-        private int[,] pgNums;                       //密保数字 0<=x<10, 0<=y<7
+        private int[,] pgNums;                      //密保数字 0<=x<10, 0<=y<7
 
         private string realName;                    //真实姓名
         private string sfz;                         //身份证
