@@ -48,9 +48,9 @@ namespace da.Wins
         */
         private void btnNew_Click(object sender, EventArgs e)
         {
+            //打开新建账号窗口（模态窗口）
             WAccounts_Add waa = new WAccounts_Add(this);
-            waa.Show();
-            this.btnNew.Enabled = false;
+            waa.ShowDialog(this);
         }
         /**
          * 收到新账户
@@ -58,7 +58,6 @@ namespace da.Wins
          */
         public void receiveNewAccount(Account account)
         {
-            this.btnNew.Enabled = true;
             //string jsonstr = JsonConvert.SerializeObject(account);
             //Console.WriteLine("接收到的账户");
             //Console.Write(jsonstr);
