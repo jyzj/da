@@ -81,7 +81,6 @@ namespace da.Wins
                     
                 }
             }
-            return;
 
             //获取真实姓名
             string realName = this.tbRealName.Text;
@@ -133,8 +132,7 @@ namespace da.Wins
             answer = answer.Trim();
 
             //构造新账户
-            Account account = new Account(name, pwd, safePwd, realName, sfz, tel, email, question, answer, pgId, pgNums);
-
+            Account account = new Account(name, pwd, safePwd, realName, sfz, tel, email, question, answer, pgId, pgNums)
             //传递参数
             this.waccounts.receiveNewAccount(account);
 

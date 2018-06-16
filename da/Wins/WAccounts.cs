@@ -1,4 +1,5 @@
-﻿using jiuyin.DataStructure;
+﻿using Newtonsoft.Json;                                  //json转化
+using jiuyin.DataStructure;
 using System;
 using System.Collections;                               // 导入ArrayList的命名空间
 using System.ComponentModel;
@@ -23,6 +24,8 @@ namespace da.Wins
         { 
             //初始化界面
             InitializeComponent();
+            //初始化账户数组
+            accounts = new ArrayList();
         }
 
 
@@ -55,8 +58,10 @@ namespace da.Wins
          */
         public void receiveNewAccount(Account account)
         {
-            Console.WriteLine("收到新账户");
             this.btnNew.Enabled = true;
+            //string jsonstr = JsonConvert.SerializeObject(account);
+            //Console.WriteLine("接收到的账户");
+            //Console.Write(jsonstr);
         }
     }
 }

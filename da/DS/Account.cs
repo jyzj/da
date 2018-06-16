@@ -27,6 +27,24 @@ namespace jiuyin.DataStructure
         /**
          * 构造方法
          */
+        public Account()
+        {
+            this.pgNums = new int[10, 7];
+        }
+        /**
+         * 构造方法
+         * @name
+         * @pwd
+         * @safePwd
+         * @realName
+         * @sfz
+         * @tel
+         * @email
+         * @question
+         * @answer
+         * @pgId
+         * @pgNums
+         */
          public Account(string name, string pwd, string safePwd, string realName, string sfz, string tel, string email, string question, string answer, string pgId, int[,]pgNums)
         {
             this.name = name;
@@ -54,71 +72,80 @@ namespace jiuyin.DataStructure
 
 
         /*** 获取账户信息的方法 ***/
-        public string getName()
+        public string Name
         {
-            return this.name;
+            get { return name; }
+            set { name = value; }
         }
-        public string getPwd()
+        public string Pwd
         {
-            return this.pwd;
+            get { return pwd; }
+            set { pwd = value; }
         }                         
-        public string getSafePwd()
+        public string SafePwd
         {
-            return this.safePwd;
+            get { return safePwd; }
+            set { safePwd = value; }
         }
 
         /*** 角色名 ***/
-        public void setCharacterName(string characterName)
+        public string CharacterName
         {
-            this.characterName = characterName;
-        }
-        public string getCharacterName()
-        {
-            return this.characterName;
+            get { return characterName; }
+            set { characterName = value; }
         }
 
         /*** 获取密保卡的方法 ***/
-        public string getPgId()
+        public string PgId
         {
-            return this.pgId;
+            get { return pgId; }
+            set { pgId = value; }
         }
-        public int getPgNum(int x, int y)
+        public int[,] PgNums
         {
-            try
+            get { return pgNums; }
+            set
             {
-                return this.pgNums[x, y];
-            }
-            catch (IndexOutOfRangeException)
-            {
-                //数组越界返回-1
-                return -1;
+                for (int x = 0; x < 10; x++)
+                {
+                    for (int y = 0; y < 7; y++)
+                    {
+                        pgNums[x, y] = value[x, y];
+                    }
+                }
             }
         }
 
         /*** 获取账号保护信息的方法 ***/
-        public string getRealName()
+        public string RealName
         {
-            return this.realName;
+            get { return realName; }
+            set { realName = value; }
         }
-        public string getSfz()
+        public string Sfz
         {
-            return this.sfz;
+            get { return sfz; }
+            set { sfz = value; }
         }                         
-        public string getTel()
+        public string Tel
         {
-            return this.tel;
+            get { return tel; }
+            set { tel = value; }
         }                         
-        public string getEmail()
+        public string Email
         {
-            return this.email;
+            get { return email; }
+            set { email = value; }
         }                      
-        public string getQuestion()
+        public string Question
         {
-            return this.question;
+            get { return question; }
+            set { question = value; }
         }                    
-        public string getAnswer()
+        public string Answer
         {
-            return this.answer;
+            get { return answer; }
+            set { answer = value; }
         }                                            
     }
 }
