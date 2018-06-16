@@ -1,4 +1,5 @@
-﻿using System;
+﻿using jiuyin.DataStructure;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,13 @@ namespace da.Wins
 {
     public partial class WAccounts_Add : Form
     {
-        public WAccounts_Add()
+        private WAccounts waccounts;                //账户管理窗口实例
+        
+
+        public WAccounts_Add(WAccounts waccounts)
         {
             InitializeComponent();
+            this.waccounts = waccounts;
         }
 
         /**
@@ -57,20 +62,20 @@ namespace da.Wins
             pgId = pgId.Trim();
             //获取密保卡
             int[,] pgNums = new int[10, 7];
-            for (int x = 1; x <= 10; x++)
+            for (int x = 0; x < 10; x++)
             {
-                for (int y = 1; y <= 7; y++)
+                for (int y = 0; y < 7; y++)
                 {
-                    char cY = (char)(y - 1 + 97);
-                    string tb = "tbPgNums_" + cY + x;
+                    char cY = (char)(y + 97);
+                    string tb = "tbPgNums_" + cY + (x + 1);
                     if (this.Controls[tb].Text == null || this.Controls[tb].Text.Trim() == "")
                     {
-                        MessageBox.Show("密保卡（" + cY + "," + x + "）不能为空", "警告", MessageBoxButtons.OK);
+                        MessageBox.Show("密保卡（" + cY + "," + (x + 1) + "）不能为空", "警告", MessageBoxButtons.OK);
                         return;
                     }
                     if(!int.TryParse(this.Controls[tb].Text.Trim(), out pgNums[x, y]))
                     {
-                        MessageBox.Show("密保卡（" + cY + "," + x + "）不是数字", "警告", MessageBoxButtons.OK);
+                        MessageBox.Show("密保卡（" + cY + "," + (x + 1) + "）不是数字", "警告", MessageBoxButtons.OK);
                         return;
                     }
                     
@@ -126,6 +131,12 @@ namespace da.Wins
                 return;
             }
             answer = answer.Trim();
+
+            //构造新账户
+            Account account = new Account(name, pwd, safePwd, realName, sfz, tel, email, question, answer, pgId, pgNums);
+
+            //传递参数
+            this.waccounts.receiveNewAccount(account);
 
             //关闭窗口
             this.Close();

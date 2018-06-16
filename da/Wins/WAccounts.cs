@@ -20,22 +20,7 @@ namespace da.Wins
          * @dsAccounts                                  //传递过来的账户数据
          */
         public WAccounts(ArrayList accounts)
-        {
-            //尝试接收传递过来的账户数据
-            if (accounts != null)
-            {
-                this.accounts = (ArrayList) accounts.Clone();
-            }else
-            {
-                this.accounts = new ArrayList();
-                int[,] aa = new int[1, 1];
-                aa[0, 0] = 1;
-
-                Account a = new Account("", "", "", "", "", "", "", "", "", "", aa);
-                this.accounts.Add(a);
-            }
-
-            
+        { 
             //初始化界面
             InitializeComponent();
         }
@@ -55,5 +40,23 @@ namespace da.Wins
             this.Table.Refresh();
         }
 
+        /**
+        * 添加新账户
+        */
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            WAccounts_Add waa = new WAccounts_Add(this);
+            waa.Show();
+            this.btnNew.Enabled = false;
+        }
+        /**
+         * 收到新账户
+         * @account 新账户
+         */
+        public void receiveNewAccount(Account account)
+        {
+            Console.WriteLine("收到新账户");
+            this.btnNew.Enabled = true;
+        }
     }
 }

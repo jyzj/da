@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace jiuyin.DataStructure
 {
-    class Account
+    public class Account
     {
         private string name;                        //账户名
         private string pwd;                         //账户密码
@@ -42,19 +42,13 @@ namespace jiuyin.DataStructure
 
             this.pgId = pgId;
             this.pgNums = new int[10, 7];
-            try
+            //密保卡赋值，可能出现报错
+            for (int x = 0; x < 10; x++)
             {
-                for (int x = 0; x < 10; x++)
+                for (int y = 0; y < 7; y++)
                 {
-                    for (int y = 0; y < 7; y++)
-                    {
-                        this.pgNums[x, y] = pgNums[x, y];
-                    }
+                    this.pgNums[x, y] = pgNums[x, y];
                 }
-            }
-            catch (IndexOutOfRangeException)
-            {
-                Console.WriteLine("账户构造失败，密保卡s数组越界");
             }
         }
 
